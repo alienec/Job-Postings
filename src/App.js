@@ -31,10 +31,10 @@ function App() {
 
 function MainContent() {
   const location = useLocation();
-  const isSubmitPage = location.pathname === "/submit";
-
+  const isSubmitOrApplyPage = location.pathname.startsWith("/submit") || location.pathname.startsWith("/apply");
+  
   return (
-    <main className={`page-content ${isSubmitPage ? "submit-page" : ""}`}>
+    <main className={`page-content ${isSubmitOrApplyPage ? "submit-page" : ""}`}>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/submit" element={<SubmitJob />} />
