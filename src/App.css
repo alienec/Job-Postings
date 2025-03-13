@@ -5,5 +5,8 @@
 }
 .page-content{
   display: flex;
+  /* height: -webkit-fill-available; */
+}
+.submit-page {
   height: -webkit-fill-available;
 }
