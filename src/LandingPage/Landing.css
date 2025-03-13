@@ -17,7 +17,11 @@ body, html {
   transform: translate(-50%, -50%);
   }
   
-
+@media (max-width: 768px) {
+    .content-box{
+      padding: 12px !important; 
+    }
+  }
   
   /* Main Content */
   .main-content {
