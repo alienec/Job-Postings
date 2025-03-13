@@ -26,6 +26,7 @@ function App() {
             <Route path="/submit" element={<SubmitJob />} />
             <Route path="/apply/:id" element={<ApplyJob />} />
             <Route path="/postings" element={<Postings />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
         <Footer />
