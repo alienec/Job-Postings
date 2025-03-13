@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate
+  Navigate,
+  useLocation
 } from "react-router-dom";
 import "./App.css";
 import Landing from "./LandingPage/Landing";
@@ -21,18 +22,27 @@ function App() {
       <div className="app-container">
         <Header />
         <ToastContainer />
-        <main className="page-content">
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/submit" element={<SubmitJob />} />
-            <Route path="/apply/:id" element={<ApplyJob />} />
-            <Route path="/postings" element={<Postings />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
+        <MainContent />
         <Footer />
       </div>
     </Router>
+  );
+}
+
+function MainContent() {
+  const location = useLocation();
+  const isSubmitPage = location.pathname === "/submit";
+
+  return (
+    <main className={`page-content ${isSubmitPage ? "submit-page" : ""}`}>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/submit" element={<SubmitJob />} />
+        <Route path="/apply/:id" element={<ApplyJob />} />
+        <Route path="/postings" element={<Postings />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </main>
   );
 }
 
